@@ -1,0 +1,11 @@
+---
+instance_limits:
+  min: 0
+  max: 10
+rules:
+  - rule_type: "rabbitmq"
+    rule_sub_type: "batch.updates.stock"
+    threshold:
+      min: 1
+      max: 100
+scheduled_limit_changes: []

@@ -1,0 +1,21 @@
+---
+applications:
+  - name: pcf-batch-autoscaling-injector
+    path: injector/target/pcf-batch-autoscaling-injector.jar
+    health-check-type: http
+    health-check-http-endpoint: /actuator/health
+    random-route: true
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+    services:
+      - rabbitmq
+
+  - name: pcf-batch-autoscaling-job
+    path: job/target/pcf-batch-autoscaling-job.jar
+    health-check-type: http
+    health-check-http-endpoint: /actuator/health
+    no-route: true
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+    services:
+      - rabbitmq

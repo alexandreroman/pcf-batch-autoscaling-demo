@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: batch.updates
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
